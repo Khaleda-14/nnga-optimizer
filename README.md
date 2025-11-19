@@ -1,3 +1,4 @@
+<img width="747" height="494" alt="optimized_electrode" src="https://github.com/user-attachments/assets/32f59dcf-4fcf-4671-b728-2d0333670eaa" />
 Electrode Geometry Optimizer Project Structure:
 
 - electrode_optimizer/ 
