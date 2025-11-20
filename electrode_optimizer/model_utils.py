@@ -23,7 +23,6 @@ def build_small_ann(input_dim):
 def load_or_train_model(model_path=DEFAULT_MODEL_PATH, scaler_path=DEFAULT_SCALER_PATH,
                         csv_path=None, epochs=80, verbose=1, signals=None):
     """Load a saved Keras model and scaler, or train from CSV if provided."""
-    # Try to load existing artifacts
     if os.path.exists(model_path) and os.path.exists(scaler_path):
         if signals:
             signals.log.emit(f"Loading model from {model_path} and scaler from {scaler_path} ...")
