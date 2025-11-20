@@ -215,11 +215,9 @@ class ElectrodeOptimizerApp(QWidget):
         if not hasattr(self, "_last_result"): QMessageBox.information(self, "No results", "Run optimization first."); return
         fname, _ = QFileDialog.getSaveFileName(self, "Save Electrode Geometry PNG", "electrodes.png", "PNG Files (*.png)")
         if not fname: return
-        # draw on temporary figure to avoid layout issues
+    
         fig_tmp = Figure(figsize=(6,5)); ax_tmp = fig_tmp.add_subplot(111)
         best = self._last_result
-        # re-create patches on tmp axes using current values
-        # draw the patches on the live axes first to ensure scaling
         draw_electrodes(self.ax_elec, self.canvas, best['initial_area'], best['initial_pitch'], optimized=[best['opt_area'], best['opt_pitch']])
         for patch in list(self.ax_elec.patches):
             ax_tmp.add_patch(patches.Rectangle((patch.get_x(), patch.get_y()), patch.get_width(), patch.get_height(),
